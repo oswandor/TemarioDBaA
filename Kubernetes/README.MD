@@ -100,10 +100,10 @@ Kubernetes ofrece una serie de beneficios y características que lo convierten e
 
 
 ### Arquitectura básica de Kubernetes
-
+<br/>
 ![Alt text](image-1.png)
 
-
+<br/>
 La arquitectura básica de Kubernetes se compone de varios componentes que trabajan juntos para gestionar y orquestar los contenedores en un clúster. A continuación, se describen los componentes principales de la arquitectura de Kubernetes:
 
 1. **Control plane (Nodo Maestro)**:
@@ -116,23 +116,24 @@ La arquitectura básica de Kubernetes se compone de varios componentes que traba
    - **Kubelet**: Es el agente que se ejecuta en cada nodo de trabajo y se comunica con el API Server para recibir instrucciones y gestionar los pods en el nodo. Se encarga de iniciar, detener y mantener los pods en ejecución.
     - **Kube Proxy**: Es responsable de la configuración de la red en los nodos de trabajo. Proporciona un enrutamiento de red básico y balanceo de carga entre los servicios y los pods en el clúster.
 
-
+<br/>
 
   ![Alt text](image-2.png)  
 
-
+<br/>
 
 3. **Pod**:
-   - Cada pod tiene una dirección IP única y puede comunicarse directamente con otros pods en el mismo clúster a través de esta dirección IP.
+   - Cada pod tiene una dirección IP única y puede comunicarse directamente con otros pods en el mismo clúster a través de esta dirección IP , tener en cuenta que cada pod puede ejecutar muchos contenedores y dentro  de pod se pueden comunicar.
+
    - Los servicios en Kubernetes proporcionan una abstracción para acceder a los pods de forma transparente, incluso cuando los pods se crean o se eliminan. Los servicios tienen una dirección IP fija y pueden tener asociado un equilibrador de carga.
 
 4. **Almacenamiento**:
    - Kubernetes admite varios mecanismos de almacenamiento, como volúmenes persistentes, que permiten a los contenedores acceder y almacenar datos de forma persistente.
 
-
+<br/>
 ![Alt text](image-3.png)
 
-
+<br/>
 
 Kubernetes ofrece una variedad de opciones de almacenamiento para satisfacer diferentes necesidades y escenarios. A continuación, se presentan algunos de los tipos de almacenamiento que Kubernetes proporciona:
 
