@@ -245,3 +245,37 @@ La estructura descrita anteriormente un archivo de manifiesto YAML para crear un
     - `ports`: Permite especificar los puertos que el contenedor expone y que pueden ser utilizados para acceder al servicio dentro del contenedor.
 
       - `containerPort: 80`: Indica el puerto en el que el contenedor de Nginx expone su servicio. En este caso, el contenedor Nginx se configurará para escuchar en el puerto 80.
+
+
+#### Multiples contenedores dentro de un mismo Pod.    
+
+De esta manera podremos ejecutar Multiples conteiner dentro de un mismo Pod 
+
+```yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-pod
+spec:
+  containers:
+    - name: nginx-container1
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+    - name: nginx-container2
+      image: nginx:latest
+      ports:
+        - containerPort: 8080
+````
+
+Utiliza el comando kubectl ````apply -f <nombre_del_archivo.yaml> ````para crear todos los Pods definidos en el archivo.
+
+
+Una vez que ejecutes este comando, puedes verificar que el Pod se haya creado correctamente utilizando el siguiente comando: 
+
+<pre>
+<code>
+kubectl get pods
+</code>
+</pre>
