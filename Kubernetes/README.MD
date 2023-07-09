@@ -269,7 +269,7 @@ spec:
       image: redis:latest
       ports:
         - containerPort: 6379 
-````
+```
 
 Utiliza el comando kubectl ````apply -f <nombre_del_archivo.yaml> ````para crear todos los Pods definidos en el archivo.
 
