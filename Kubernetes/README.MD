@@ -83,21 +83,20 @@ En pocas palabras, Kubernetes facilita la orquestación y gestión de contenedor
 
 Kubernetes ofrece una serie de beneficios y características que lo convierten en una plataforma popular para la gestión de contenedores a gran escala. A continuación, se presentan algunos de los principales beneficios y características de Kubernetes:
 
-1. Escalabilidad y capacidad de respuesta: Kubernetes permite escalar automáticamente las aplicaciones en función de la demanda de tráfico o la utilización de recursos. Puede aumentar o disminuir el número de réplicas de los contenedores de forma dinámica, lo que facilita la adaptación a cargas variables y garantiza una alta capacidad de respuesta.
+1. **Escalabilidad y capacidad de respuesta**: Kubernetes permite escalar automáticamente las aplicaciones en función de la demanda de tráfico o la utilización de recursos. Puede aumentar o disminuir el número de réplicas de los contenedores de forma dinámica, lo que facilita la adaptación a cargas variables y garantiza una alta capacidad de respuesta.
 
-2. Alta disponibilidad y tolerancia a fallos: Kubernetes proporciona mecanismos para la detección y recuperación automática de fallos en los nodos o contenedores. Si un nodo o contenedor falla, Kubernetes puede reprogramar automáticamente las tareas en otros nodos disponibles, lo que garantiza que las aplicaciones se ejecuten de manera continua y confiable.
+2. **Alta disponibilidad y tolerancia a fallos**: Kubernetes proporciona mecanismos para la detección y recuperación automática de fallos en los nodos o contenedores. Si un nodo o contenedor falla, Kubernetes puede reprogramar automáticamente las tareas en otros nodos disponibles, lo que garantiza que las aplicaciones se ejecuten de manera continua y confiable.
 
-3. Despliegue y actualización declarativa: Kubernetes permite definir la configuración de las aplicaciones mediante archivos de configuración en formato YAML o JSON. Esto permite un enfoque declarativo, donde se describe el estado deseado de la aplicación y Kubernetes se encarga de llevarla a cabo. Además, Kubernetes facilita las actualizaciones de aplicaciones sin tiempo de inactividad al implementar nuevas versiones gradualmente.
+3. **Despliegue y actualización declarativa**: Kubernetes permite definir la configuración de las aplicaciones mediante archivos de configuración en formato YAML o JSON. Esto permite un enfoque declarativo, donde se describe el estado deseado de la aplicación y Kubernetes se encarga de llevarla a cabo. Además, Kubernetes facilita las actualizaciones de aplicaciones sin tiempo de inactividad al implementar nuevas versiones gradualmente.
 
-4. Gestión y orquestación de contenedores: Kubernetes administra y coordina la ejecución de contenedores en un clúster, lo que simplifica la administración de aplicaciones complejas que constan de múltiples contenedores interconectados. Proporciona herramientas para la programación, distribución, supervisión y escalado de contenedores de manera eficiente.
+4. **Gestión y orquestación de contenedores**: Kubernetes administra y coordina la ejecución de contenedores en un clúster, lo que simplifica la administración de aplicaciones complejas que constan de múltiples contenedores interconectados. Proporciona herramientas para la programación, distribución, supervisión y escalado de contenedores de manera eficiente.
 
-5. Servicios y descubrimiento de servicios: Kubernetes ofrece un sistema de servicios que permite exponer aplicaciones dentro del clúster y descubrirlas de manera transparente. Los servicios facilitan la comunicación entre los componentes de la aplicación y permiten la conectividad flexible y confiable entre los diferentes servicios.
+5. **Servicios y descubrimiento de servicios**: Kubernetes ofrece un sistema de servicios que permite exponer aplicaciones dentro del clúster y descubrirlas de manera transparente. Los servicios facilitan la comunicación entre los componentes de la aplicación y permiten la conectividad flexible y confiable entre los diferentes servicios.
 
-6. Gestión de la configuración y secretos: Kubernetes proporciona mecanismos para la gestión centralizada de la configuración de las aplicaciones y el almacenamiento seguro de información sensible, como contraseñas o claves de API. Permite la inyección de configuración y secretos en los contenedores de forma segura y flexible.
+6. **Gestión de la configuración y secretos**: Kubernetes proporciona mecanismos para la gestión centralizada de la configuración de las aplicaciones y el almacenamiento seguro de información sensible, como contraseñas o claves de API. Permite la inyección de configuración y secretos en los contenedores de forma segura y flexible.
 
-7. Compatibilidad con múltiples entornos: Kubernetes es una plataforma agnóstica en cuanto a la infraestructura subyacente. Puede ejecutarse en diversos entornos, como en la nube (por ejemplo, Google Cloud, Azure, AWS), en entornos locales (mediante herramientas como minikube o kind) o en entornos híbridos. Esto proporciona flexibilidad y portabilidad a las aplicaciones.
+7. **Compatibilidad con múltiples entornos**: Kubernetes es una plataforma agnóstica en cuanto a la infraestructura subyacente. Puede ejecutarse en diversos entornos, como en la nube (por ejemplo, Google Cloud, Azure, AWS), en entornos locales (mediante herramientas como minikube o kind) o en entornos híbridos. Esto proporciona flexibilidad y portabilidad a las aplicaciones.
 
-En general, Kubernetes simplifica la gestión y operación de aplicaciones en contenedores, permitiendo un despliegue y escalamiento eficiente, una alta disponibilidad y una mayor agilidad en el desarrollo y despliegue de aplicaciones. Sus características y beneficios contribuyen a mejorar la eficiencia, la confiabilidad y la escalabilidad de las aplicaciones en entornos de producción.
 
 
 ### Arquitectura básica de Kubernetes
@@ -107,15 +106,15 @@ En general, Kubernetes simplifica la gestión y operación de aplicaciones en co
 
 La arquitectura básica de Kubernetes se compone de varios componentes que trabajan juntos para gestionar y orquestar los contenedores en un clúster. A continuación, se describen los componentes principales de la arquitectura de Kubernetes:
 
-1. ***Control plane (Nodo Maestro)***:
-   - ***API Server***: Es el componente central de Kubernetes que expone la API REST utilizada para interactuar con el clúster. Los clientes, como la línea de comandos `kubectl`, se comunican con el API Server para enviar solicitudes y recibir respuestas.
-   - ***etcd***: Es una base de datos distribuida y altamente disponible que almacena el estado del clúster, como la configuración, los objetos de la API y el estado de los pods y servicios.
-   - ***Scheduler***: Es el encargado de asignar los pods a los nodos disponibles en el clúster, teniendo en cuenta los recursos disponibles y las políticas de programación definidas.
-   - Controller Manager: Es un conjunto de controladores que se encargan de mantener y garantizar el estado deseado del clúster. Algunos controladores gestionan los despliegues, escalado, balanceo de carga, actualizaciones y otros aspectos del clúster.
+1. **Control plane (Nodo Maestro)**:
+   - **API Server**: Es el componente central de Kubernetes que expone la API REST utilizada para interactuar con el clúster. Los clientes, como la línea de comandos `kubectl`, se comunican con el API Server para enviar solicitudes y recibir respuestas.
+   - **etcd**: Es una base de datos distribuida y altamente disponible que almacena el estado del clúster, como la configuración, los objetos de la API y el estado de los pods y servicios.
+   - **Scheduler**: Es el encargado de asignar los pods a los nodos disponibles en el clúster, teniendo en cuenta los recursos disponibles y las políticas de programación definidas.
+   - **Controller Manager**: Es un conjunto de controladores que se encargan de mantener y garantizar el estado deseado del clúster. Algunos controladores gestionan los despliegues, escalado, balanceo de carga, actualizaciones y otros aspectos del clúster.
 
-2. ***Worker Nodes (Nodos de Trabajo)***:
-   - ***Kubelet***: Es el agente que se ejecuta en cada nodo de trabajo y se comunica con el API Server para recibir instrucciones y gestionar los pods en el nodo. Se encarga de iniciar, detener y mantener los pods en ejecución.
-    - ***Kube Proxy***: Es responsable de la configuración de la red en los nodos de trabajo. Proporciona un enrutamiento de red básico y balanceo de carga entre los servicios y los pods en el clúster.
+2. **Worker Nodes (Nodos de Trabajo)**:
+   - **Kubelet**: Es el agente que se ejecuta en cada nodo de trabajo y se comunica con el API Server para recibir instrucciones y gestionar los pods en el nodo. Se encarga de iniciar, detener y mantener los pods en ejecución.
+    - **Kube Proxy**: Es responsable de la configuración de la red en los nodos de trabajo. Proporciona un enrutamiento de red básico y balanceo de carga entre los servicios y los pods en el clúster.
 
 3. Networking:
    - Cada pod tiene una dirección IP única y puede comunicarse directamente con otros pods en el mismo clúster a través de esta dirección IP.
