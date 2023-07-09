@@ -1,7 +1,7 @@
 # Temario de Kubernetes desde cero para convertirme en un microservicio
 
 ## 1.0 Introducción a Kubernetes
-- 1.1 ¿Qué es Kubernetes?
+- ¿Qué es Kubernetes?
 - Beneficios y características de Kubernetes
 - Arquitectura básica de Kubernetes
 - Conceptos clave: clústeres, nodos, pods, servicios, volúmenes, etc.
@@ -60,3 +60,41 @@
 - Actualización y escalado de clústeres
 - Resolución de problemas y depuración de aplicaciones
 - Gestión de recursos y límites en Kubernetes
+
+
+
+
+
+
+
+
+## 1.0 Introducción a Kubernetes    
+
+
+### ¿Qué es Kubernetes? 
+
+Kubernetes es una plataforma de código abierto diseñada para automatizar y administrar aplicaciones en contenedores a gran escala. También se le conoce como K8s, que es una abreviatura del nombre Kubernetes en el que se reemplazan los 8 caracteres "ubernete" con el número 8.
+
+En pocas palabras, Kubernetes facilita la orquestación y gestión de contenedores en un entorno de clúster. Permite desplegar, escalar y administrar aplicaciones en contenedores de manera eficiente y confiable.
+
+
+### Beneficios y características de Kubernetes
+
+
+Kubernetes ofrece una serie de beneficios y características que lo convierten en una plataforma popular para la gestión de contenedores a gran escala. A continuación, se presentan algunos de los principales beneficios y características de Kubernetes:
+
+1. Escalabilidad y capacidad de respuesta: Kubernetes permite escalar automáticamente las aplicaciones en función de la demanda de tráfico o la utilización de recursos. Puede aumentar o disminuir el número de réplicas de los contenedores de forma dinámica, lo que facilita la adaptación a cargas variables y garantiza una alta capacidad de respuesta.
+
+2. Alta disponibilidad y tolerancia a fallos: Kubernetes proporciona mecanismos para la detección y recuperación automática de fallos en los nodos o contenedores. Si un nodo o contenedor falla, Kubernetes puede reprogramar automáticamente las tareas en otros nodos disponibles, lo que garantiza que las aplicaciones se ejecuten de manera continua y confiable.
+
+3. Despliegue y actualización declarativa: Kubernetes permite definir la configuración de las aplicaciones mediante archivos de configuración en formato YAML o JSON. Esto permite un enfoque declarativo, donde se describe el estado deseado de la aplicación y Kubernetes se encarga de llevarla a cabo. Además, Kubernetes facilita las actualizaciones de aplicaciones sin tiempo de inactividad al implementar nuevas versiones gradualmente.
+
+4. Gestión y orquestación de contenedores: Kubernetes administra y coordina la ejecución de contenedores en un clúster, lo que simplifica la administración de aplicaciones complejas que constan de múltiples contenedores interconectados. Proporciona herramientas para la programación, distribución, supervisión y escalado de contenedores de manera eficiente.
+
+5. Servicios y descubrimiento de servicios: Kubernetes ofrece un sistema de servicios que permite exponer aplicaciones dentro del clúster y descubrirlas de manera transparente. Los servicios facilitan la comunicación entre los componentes de la aplicación y permiten la conectividad flexible y confiable entre los diferentes servicios.
+
+6. Gestión de la configuración y secretos: Kubernetes proporciona mecanismos para la gestión centralizada de la configuración de las aplicaciones y el almacenamiento seguro de información sensible, como contraseñas o claves de API. Permite la inyección de configuración y secretos en los contenedores de forma segura y flexible.
+
+7. Compatibilidad con múltiples entornos: Kubernetes es una plataforma agnóstica en cuanto a la infraestructura subyacente. Puede ejecutarse en diversos entornos, como en la nube (por ejemplo, Google Cloud, Azure, AWS), en entornos locales (mediante herramientas como minikube o kind) o en entornos híbridos. Esto proporciona flexibilidad y portabilidad a las aplicaciones.
+
+En general, Kubernetes simplifica la gestión y operación de aplicaciones en contenedores, permitiendo un despliegue y escalamiento eficiente, una alta disponibilidad y una mayor agilidad en el desarrollo y despliegue de aplicaciones. Sus características y beneficios contribuyen a mejorar la eficiencia, la confiabilidad y la escalabilidad de las aplicaciones en entornos de producción.
