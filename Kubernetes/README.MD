@@ -117,11 +117,11 @@ La arquitectura básica de Kubernetes se compone de varios componentes que traba
    - **Kubelet**: Es el agente que se ejecuta en cada nodo de trabajo y se comunica con el API Server para recibir instrucciones y gestionar los pods en el nodo. Se encarga de iniciar, detener y mantener los pods en ejecución.
     - **Kube Proxy**: Es responsable de la configuración de la red en los nodos de trabajo. Proporciona un enrutamiento de red básico y balanceo de carga entre los servicios y los pods en el clúster.
 
-<br/>
 
-  ![Alt text](image-2.png)  
 
-<br/>
+![Alt text](image-2.png)  
+
+
 
 3. **Pod**:
    - Cada pod tiene una dirección IP única y puede comunicarse directamente con otros pods en el mismo clúster a través de esta dirección IP , tener en cuenta que cada pod puede ejecutar muchos contenedores y dentro  de pod se pueden comunicar.
