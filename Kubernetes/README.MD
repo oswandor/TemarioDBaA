@@ -116,10 +116,36 @@ La arquitectura básica de Kubernetes se compone de varios componentes que traba
    - **Kubelet**: Es el agente que se ejecuta en cada nodo de trabajo y se comunica con el API Server para recibir instrucciones y gestionar los pods en el nodo. Se encarga de iniciar, detener y mantener los pods en ejecución.
     - **Kube Proxy**: Es responsable de la configuración de la red en los nodos de trabajo. Proporciona un enrutamiento de red básico y balanceo de carga entre los servicios y los pods en el clúster.
 
-3. Networking:
+
+
+  ![Alt text](image-2.png)  
+
+
+
+3. **Pod**:
    - Cada pod tiene una dirección IP única y puede comunicarse directamente con otros pods en el mismo clúster a través de esta dirección IP.
    - Los servicios en Kubernetes proporcionan una abstracción para acceder a los pods de forma transparente, incluso cuando los pods se crean o se eliminan. Los servicios tienen una dirección IP fija y pueden tener asociado un equilibrador de carga.
 
-4. Almacenamiento:
+4. **Almacenamiento**:
    - Kubernetes admite varios mecanismos de almacenamiento, como volúmenes persistentes, que permiten a los contenedores acceder y almacenar datos de forma persistente.
 
+
+![Alt text](image-3.png)
+
+
+
+Kubernetes ofrece una variedad de opciones de almacenamiento para satisfacer diferentes necesidades y escenarios. A continuación, se presentan algunos de los tipos de almacenamiento que Kubernetes proporciona:
+
+1. Volúmenes Vacíos (EmptyDir): Son volúmenes temporales que se crean junto con un POD y existen mientras el POD esté en ejecución. Los volúmenes EmptyDir son útiles para compartir archivos temporales entre los contenedores dentro de un mismo POD.
+
+2. Volúmenes Persistentes (PersistentVolumes y PersistentVolumeClaims): Los volúmenes persistentes permiten almacenar datos de manera persistente incluso cuando los PODs se reinician o se escalan. Los PersistentVolumes son recursos de almacenamiento provisionados en el clúster, mientras que los PersistentVolumeClaims son solicitudes de almacenamiento realizadas por los PODs. Los reclamos (claims) se vinculan a los volúmenes persistentes para proporcionar almacenamiento persistente a los PODs.
+
+3. Almacenamiento en la Nube (Cloud Storage): Kubernetes integra proveedores de almacenamiento en la nube, como AWS Elastic Block Store (EBS), Azure Disk y Google Persistent Disk. Estos proveedores ofrecen almacenamiento persistente y de alto rendimiento que se puede utilizar con los volúmenes persistentes en Kubernetes.
+
+4. Almacenamiento en Host (HostPath): Permite que los contenedores accedan a rutas de archivos en el nodo de trabajo subyacente. Este tipo de almacenamiento puede ser útil para casos de uso donde se requiere un acceso de bajo nivel al sistema de archivos del nodo.
+
+5. Volúmenes de Configuración (ConfigMap): Los ConfigMaps son recursos de Kubernetes que almacenan datos de configuración en forma de pares clave-valor o archivos de configuración. Estos volúmenes permiten que los contenedores accedan a la configuración necesaria sin tener que modificar el contenedor en sí.
+
+6. Almacenamiento en Red (Network Storage): Kubernetes es compatible con el uso de sistemas de almacenamiento en red, como NFS (Network File System) o Ceph, que permiten compartir el almacenamiento a través de la red y acceder a él desde varios nodos en el clúster.
+
+Estos son solo algunos ejemplos de los tipos de almacenamiento que Kubernetes ofrece. Dependiendo de tus necesidades y la infraestructura subyacente, también puedes explorar otras opciones y proveedores de almacenamiento disponibles en el ecosistema de Kubernetes.
