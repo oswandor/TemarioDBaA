@@ -132,6 +132,7 @@ La arquitectura básica de Kubernetes se compone de varios componentes que traba
    - Kubernetes admite varios mecanismos de almacenamiento, como volúmenes persistentes, que permiten a los contenedores acceder y almacenar datos de forma persistente.
 
 <br/>
+
 ![Alt text](image-3.png)
 
 <br/>
