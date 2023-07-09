@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapi-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapi
+  template:
+    metadata:
+      labels:
+        app: webapi
+    spec:
+      containers:
+        - name: webapi
+          image: your-webapi-image:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: DB_CONNECTIONSTRING
+              value: "Server=dbSqlServer;Database=your-database;User Id=sa;Password=your-password;"
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+            requests:
+              cpu: "0.5"
+              memory: "256Mi"

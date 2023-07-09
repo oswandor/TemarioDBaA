@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapi-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapi
+  template:
+    metadata:
+      labels:
+        app: webapi
+    spec:
+      containers:
+        - name: webapi
+          image: RedisWebAPI/Dockerfile
+          ports:
+            - containerPort: 80
+          env:
+            - name: DB_CONNECTIONSTRING
+              value: "Server=dbSqlServer;Database=your-database;User Id=sa;Password=your-password;"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapi-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: webapi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqlserver-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver
+  template:
+    metadata:
+      labels:
+        app: sqlserver
+    spec:
+      containers:
+        - name: sqlserver
+          image: mcr.microsoft.com/mssql/server:2019-latest 
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: MSSQL_SA_PASSWORD
+              value: your-sqlserver-password
+            - name: MSSQL_PID
+              value: Developer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqlserver-service
+spec:
+  type: ClusterIP
+  selector:
+    app: sqlserver
+  ports:
+    - protocol: TCP
+      port: 1433
+      targetPort: 1433
