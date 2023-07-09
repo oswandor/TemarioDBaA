@@ -292,6 +292,9 @@ kubectl exec -it multi-container-pod -c nginx-container1 -- /bin/bash
 kubectl exec -it multi-container-pod -c redis-container1 -- /bin/bash
 ```  
 
+
+
+```nginx-container1``` 
 <pre> 
 
 oswaldo@oswaldo:/mnt/c/Users/oswan/OneDrive/Desktop/TemarioDBaA/Manifest$ kubectl exec -it multi-container-pod -c nginx-cont
@@ -344,3 +347,8 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 </pre>
 
 
+
+```redis-container2``` 
+
+
+![Alt text](image-5.png)
