@@ -257,16 +257,18 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: multi-container-pod
+  labels:
+    app: my-app
 spec:
   containers:
     - name: nginx-container1
       image: nginx:latest
       ports:
         - containerPort: 80
-    - name: nginx-container2
-      image: nginx:latest
+    - name: redis-container2
+      image: redis:latest
       ports:
-        - containerPort: 8080
+        - containerPort: 6379 
 ````
 
 Utiliza el comando kubectl ````apply -f <nombre_del_archivo.yaml> ````para crear todos los Pods definidos en el archivo.
@@ -279,3 +281,66 @@ Una vez que ejecutes este comando, puedes verificar que el Pod se haya creado co
 kubectl get pods
 </code>
 </pre>
+
+Bien cuando ejecutamos y se crea el Pod pero no podremos tener una comunicacion externa a los contenedores  pero ellos si dentro del mismo Pod. ¿Como podemos comprobar si entre ellos hay comunicacion? tendremos que acceder desde  una manera interactiva a los contenedores  de esta manera   
+```
+kubectl exec -it multi-container-pod -c nginx-container1 -- /bin/bash
+```  
+
+
+```
+kubectl exec -it multi-container-pod -c redis-container1 -- /bin/bash
+```  
+
+<pre> 
+
+oswaldo@oswaldo:/mnt/c/Users/oswan/OneDrive/Desktop/TemarioDBaA/Manifest$ kubectl exec -it multi-container-pod -c nginx-cont
+ainer1 -- /bin/bash
+root@multi-container-pod:/# apt update
+Get:1 http://deb.debian.org/debian bookworm InRelease [147 kB]
+Get:2 http://deb.debian.org/debian bookworm-updates InRelease [52.1 kB]
+Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8904 kB]
+Get:5 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [47.3 kB]
+Fetched 9199 kB in 37s (251 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+All packages are up to date.
+root@multi-container-pod:/# apt install net-tools
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  net-tools
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 243 kB of archives.
+After this operation, 1001 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main amd64 net-tools amd64 2.10-0.1 [243 kB]
+Fetched 243 kB in 1s (288 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package net-tools.
+(Reading database ... 7604 files and directories currently installed.)
+Preparing to unpack .../net-tools_2.10-0.1_amd64.deb ...
+Unpacking net-tools (2.10-0.1) ...
+Setting up net-tools (2.10-0.1) ...
+root@multi-container-pod:/# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.1.0.35  netmask 255.255.0.0  broadcast 10.1.255.255
+        ether 96:04:8f:2f:07:50  txqueuelen 0  (Ethernet)
+        RX packets 9170  bytes 10053739 (9.5 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 4478  bytes 297096 (290.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+</pre>
+
+
