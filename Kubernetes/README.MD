@@ -100,8 +100,10 @@ Kubernetes ofrece una serie de beneficios y características que lo convierten e
 
 
 ### Arquitectura básica de Kubernetes
+<br/> 
 
 ![Alt text](image-1.png)
+
 <br/>
 La arquitectura básica de Kubernetes se compone de varios componentes que trabajan juntos para gestionar y orquestar los contenedores en un clúster. A continuación, se describen los componentes principales de la arquitectura de Kubernetes:
 
